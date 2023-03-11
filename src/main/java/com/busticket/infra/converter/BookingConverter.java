@@ -12,10 +12,9 @@ public class BookingConverter implements EntityConverter<BookingM, Booking>{
         domain.setId(entity.getId());
         domain.setDestination(entity.getDestination());
         domain.setName(entity.getName());
-        domain.setDuration(entity.getDuration());
+        domain.setDuration(Integer.parseInt(entity.getDuration()));
         domain.setEmail(entity.getEmail());
         domain.setDepartureDate(entity.getDepartureDate());
-        domain.setTime(entity.getTime());
         domain.setOrigin(entity.getOrigin());
 
         return domain;
@@ -30,10 +29,9 @@ public class BookingConverter implements EntityConverter<BookingM, Booking>{
         entity.setId(domain.getId());
         entity.setDestination(domain.getDestination());
         entity.setName(domain.getName());
-        entity.setDuration(domain.getDuration());
+        entity.setDuration(domain.getDuration().toString());
         entity.setEmail(domain.getEmail());
         entity.setDepartureDate(domain.getDepartureDate());
-        entity.setTime(domain.getTime());
         entity.setOrigin(domain.getOrigin());
 
         return entity;

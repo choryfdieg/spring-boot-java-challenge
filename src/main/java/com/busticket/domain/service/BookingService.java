@@ -9,6 +9,6 @@ public interface BookingService {
     Booking findBookingById(String id);
     List<Booking> findAllBookings();
     Booking createBooking(Booking booking);
-    Booking updateBooking(Booking booking);
-    Booking deleteBooking(String id);
+    void updateBooking(Booking booking);
+    void deleteBooking(String id);
 }

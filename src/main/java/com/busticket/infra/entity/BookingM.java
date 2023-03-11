@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document("booking")
 public class BookingM {
 
@@ -17,8 +19,7 @@ public class BookingM {
     private String email;
     private String origin;
     private String destination;
-    private String departureDate;
-    private String time;
+    private Date departureDate;
     private String duration;
 
     public String getId() {
@@ -61,20 +62,12 @@ public class BookingM {
         this.destination = destination;
     }
 
-    public String getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(String departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getDuration() {
@@ -84,5 +77,4 @@ public class BookingM {
     public void setDuration(String duration) {
         this.duration = duration;
     }
-
 }

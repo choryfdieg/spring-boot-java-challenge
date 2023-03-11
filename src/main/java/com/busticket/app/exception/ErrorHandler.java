@@ -24,7 +24,6 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     protected RestResponse<Object> handleBookingNotFoundException(final BookingNotFoundException ex) {
 
         final RestResponse<Object> response = new RestResponse<>();
-        response.setFailure();
         response.setDescription(ex.getMessage());
         response.setCode(100);
         return response;
@@ -42,7 +41,6 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     protected RestResponse<Object> handleBookingSaveException(final BookingSaveException ex) {
 
         final RestResponse<Object> response = new RestResponse<>();
-        response.setFailure();
         response.setDescription(ex.getMessage());
         response.setCode(101);
         return response;
@@ -59,10 +57,9 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     protected RestResponse<Object> handleBookingDeleteException(final BookingDeleteException ex) {
 
-        final RestResponse<Object> response = new RestResponse<>();
-        response.setFailure();
+        final RestResponse<Object> response = new RestResponse<>(false);
         response.setDescription(ex.getMessage());
-        response.setCode(103);
+        response.setCode(104);
         return response;
 
     }
@@ -77,8 +74,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     protected RestResponse<Object> handleBookingDeleteException(final IllegalArgumentException ex) {
 
-        final RestResponse<Object> response = new RestResponse<>();
-        response.setFailure();
+        final RestResponse<Object> response = new RestResponse<>(false);
         response.setDescription(ex.getMessage());
         response.setCode(104);
         return response;

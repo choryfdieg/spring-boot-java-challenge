@@ -17,8 +17,10 @@ public final class RestResponse<T>{
         this.code = 1;
     }
 
-    public void setFailure() {
-        this.code = 99;
+    public RestResponse(T resultObject, String description){
+        this.description = description;
+        this.resultObject = resultObject;
+        this.code = 1;
     }
 
     public int getCode() {

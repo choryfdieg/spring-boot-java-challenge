@@ -1,5 +1,6 @@
 package com.busticket.app.controller;
 
+import com.busticket.app.constant.URI;
 import com.busticket.app.response.RestResponse;
 import com.busticket.domain.entity.Booking;
 import jakarta.validation.Valid;
@@ -18,15 +19,15 @@ public interface BookingApi {
     @PostMapping
     public ResponseEntity<RestResponse> createNewBooking(@Valid @RequestBody Booking booking);
 
-    @GetMapping("/{id}")
+    @GetMapping(URI.GET_BOOKING)
     public ResponseEntity<RestResponse> getBookingById(@PathVariable("id") String id);
 
-    @GetMapping("/all")
+    @GetMapping(URI.ALL_BOOKING)
     public ResponseEntity<RestResponse<List<Booking>>> getAllBookings();
 
     @PutMapping
     public ResponseEntity<RestResponse> updateBooking(@RequestBody Booking booking);
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(URI.DELETE_BOOKING)
     public ResponseEntity<RestResponse> deleteBookingById(@PathVariable("id") String id);
 }

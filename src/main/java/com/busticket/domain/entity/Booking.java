@@ -1,6 +1,9 @@
 package com.busticket.domain.entity;
 
 import jakarta.validation.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 public class Booking {
     private String id;
@@ -9,9 +12,10 @@ public class Booking {
     private String email;
     private String origin;
     private String destination;
-    private String departureDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date departureDate;
     private String time;
-    private String duration;
+    private Integer duration;
 
     public String getId() {
         return id;
@@ -53,11 +57,11 @@ public class Booking {
         this.destination = destination;
     }
 
-    public String getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(String departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
 
@@ -69,12 +73,11 @@ public class Booking {
         this.time = time;
     }
 
-    public String getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
-
 }
